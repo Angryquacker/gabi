@@ -3,6 +3,9 @@ const moreIns = ins => {
   .then(res => res.json())
   .then(data => { 
     let quote = data[Math.floor(Math.random() * 1000)];
+   
+    if (quote.author == null) { quote.author = "?" }
+    
     ins.innerHTML = `"${quote.text}" - ${quote.author}`;
   });
 };
